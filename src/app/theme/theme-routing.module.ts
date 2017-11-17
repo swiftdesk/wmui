@@ -1,30 +1,21 @@
+import { LogComponent } from './my/log/log.component';
 import { NgModule } from '@angular/core';
 import { ThemeComponent } from './theme.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from "../auth/_guards/auth.guard";
 
+
 const routes: Routes = [
     {
         "path": "",
-        "component": ThemeComponent,
+        "component": LogComponent,
         "canActivate": [AuthGuard],
         "children": [
             {
                 "path": "index",
                 "loadChildren": ".\/pages\/aside-left-display-disabled\/index\/index.module#IndexModule"
             },
-            {
-                "path": "inner",
-                "loadChildren": ".\/pages\/default\/inner\/inner.module#InnerModule"
-            },
-            {
-                "path": "profile",
-                "loadChildren": ".\/pages\/default\/profile\/profile.module#ProfileModule"
-            },
-            {
-                "path": "404",
-                "loadChildren": ".\/pages\/default\/not-found\/not-found.module#NotFoundModule"
-            },
+           
             {
                 "path": "",
                 "redirectTo": "index",
